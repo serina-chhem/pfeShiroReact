@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import logo from "./logo.png";
 
 /*import Navbar from './components/Navbar.js';*/
 import Form from "./components/Form";
@@ -15,16 +16,23 @@ class App extends Component {
             <div className="App">
                 <div className="Blanc">
                     <div className="menu">
-                    <button >Contact</button>
-                    <button>A propos</button>
-                    <button>Fonctionnalités</button>
+                        <div className="Carre">
+                            <img src={logo} className="App-logo" alt="logo"/>
+                        </div>
+                        <div className="Rectangle"></div>
+                        <div className="Carre">
+                            <button>Fonctionnalités</button>
+                            <button >Contact</button>
+                            <button>A propos</button>
+                        </div>
+                        
+                        
                     </div>
                     <div className="Accueil">
-                    <h1>
-                        L'assistan vocal qui comprend les comptes-rendus des chirurgiens
-                    </h1>
-                    <button>Tester</button>
-                    
+                        <h1>
+                            L'assistan vocal qui comprend les comptes-rendus des chirurgiens
+                        </h1>
+                        <button>Tester</button>
                     </div>
                 </div>
 
