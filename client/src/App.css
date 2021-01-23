@@ -22,6 +22,10 @@
   align-items: center;
 }
 
+.marge {
+  margin-left: 3em;
+}
+
 .Carre {
   flex: 1;
 }
@@ -84,6 +88,11 @@
 
 .App-logo {
   height: 10vmin;
+  pointer-events: none;
+}
+
+.App-proto {
+  height: 80vmin;
   pointer-events: none;
 }
 
@@ -165,6 +174,7 @@
 .Prototype {
   margin-left: 10%;
   margin-right: 10%;
+  padding-bottom: 2%;
 }
 
 .Prototype h1 {
