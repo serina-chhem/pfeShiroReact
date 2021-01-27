@@ -1,7 +1,14 @@
 import React, { Component } from "react";
 import "./App.css";
-import logo from "./logo.png";
-import proto from "./proto.png";
+import logo from "./images/logo.png";
+import proto from "./images/proto.png";
+import {ReactComponent as Surgeons} from './images/surgeons.svg';
+import Fonctionnalite1 from './images/func1.svg';
+import Fonctionnalite2 from './images/func2.svg';
+import Fonctionnalite3 from './images/func3.svg';
+import Fonctionnalite4 from './images/func4.svg';
+import Fonctionnalite5 from './images/func5.svg';
+import Fonctionnalite6 from './images/func6.svg';
 
 import Form from "./components/Form";
 
@@ -30,8 +37,9 @@ class App extends Component {
                     </div>
                     <div className="Accueil">
                         <h1>
-                            L'assistan vocal qui comprend les comptes-rendus des chirurgiens
+                            L'assistant vocal qui comprend les comptes-rendus des chirurgiens
                         </h1>
+                        <Surgeons />
                         <button>Tester</button>
                     </div>
                 </div>
@@ -55,28 +63,34 @@ class App extends Component {
                     <h1>Fonctionnalités</h1>
                     <div className="Bloc">
                         <div className="bloc1">
+                        <img src={Fonctionnalite1} alt="Reconnaissance vocale" />
                         <h3>Reconnaissance vocale</h3>
                         <p>SHIRO est capable de reconnaître la voix d'un chirurgien lorsqu'il est invoqué</p>
                         </div>
                         <div className="bloc2">
+                        <img src={Fonctionnalite2} alt="Transcription" />
                         <h3>Transcription de la voix en texte</h3>
                         <p>Shiro est capable de retranscrire la voix en texte</p>
                         </div>
                         <div className="bloc2">
+                        <img src={Fonctionnalite3} alt="enregistrement" />
                         <h3>Enregistrement dans une BDD</h3>
                         <p>SHIRO est capable d'enregistrer les CRO dans une BDD</p>
                         </div>
                     </div>
                     <div className="Bloc">
                         <div className="bloc3">
+                        <img src={Fonctionnalite4} alt="Reconnaissance vocale" />
                         <h3>Feedbacks</h3>
                         <p>SHIRO est capable de répondre lorsqu'on lui pose une question</p>
                         </div>
                         <div className="bloc4">
+                        <img src={Fonctionnalite5} alt="Reconnaissance vocale" />
                         <h3>Modification d'un CRO</h3>
                         <p>Il est possible d'effectuer une modification directement sur le site</p>
                         </div>
                         <div className="bloc4">
+                        <img src={Fonctionnalite6} alt="Reconnaissance vocale" />
                         <h3>Suivie des anciens CRO</h3>
                         <p>Il est possible de consulter les anciens CRO enregistrés via SHIRO</p>
                         </div>
