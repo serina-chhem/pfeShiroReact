@@ -1,14 +1,18 @@
-/*import DictaphoneInput from "./DictaphoneInput.js";*/
 import Dictaphone from "./Dictaphone.js";
 import { useEffect, useState, useRef } from "react";
 import SpeechRecognition, {
     useSpeechRecognition,
 } from "react-speech-recognition";
+import Commands from "./Commands.js";
 
 const Form = () => {
+   
     const { transcript, listening } = useSpeechRecognition();
+
     const hasBeenUpdated = useRef(false);
     const [cro, setCro] = useState("");
+
+
     /*const [firstname, setFirstname] = useState("");
     const [lastname, setLastname] = useState("");*/
     const [pat_id, setPatId] = useState("");
@@ -46,6 +50,8 @@ const Form = () => {
             console.error(e);
         }
     };
+
+
     return (
         <div>
             <Dictaphone listening={listening} />
@@ -57,11 +63,13 @@ const Form = () => {
                     name="pat_id"
                     onChange={(e) => setPatId(e.target.value)}
                 />
+                
                 <input
                     value={med_id}
                     name="med_id"
                     onChange={(e) => setMedId(e.target.value)}
                 />
+               
                 <textarea
                     value={cro}
                     onChange={(e) => setCro(e.target.value)}
@@ -69,6 +77,8 @@ const Form = () => {
                 ></textarea>
                 <input type="submit" value="Envoyer" />
             </form>
+            <Commands/>
+            
         </div>
     );
 };

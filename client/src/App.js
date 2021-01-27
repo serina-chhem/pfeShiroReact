@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 
-/*import Navbar from './components/Navbar.js';*/
 import Form from "./components/Form";
 
 class App extends Component {
@@ -17,6 +16,7 @@ class App extends Component {
                 <div className="Container">
                     <Form />
                 </div>
+    
             </div>
         );
     }
