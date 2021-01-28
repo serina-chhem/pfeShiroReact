@@ -24,21 +24,37 @@ router.get("/pats", async (req, res, next) => {
 
 /* GET CROs listing. */
 router.get("/cro", async (req, res, next) => {
-    /*à modifier*/
-    const [result] = await db.query(
-        "SELECT * FROM cro WHERE cro_id = ?;",
-        req.body
+    const { fn_pat, ln_pat } = req.query;
+    const [
+        cros,
+    ] = await db.query(
+        "SELECT * FROM cro JOIN pat USING (pat_id) JOIN med USING (med_id) WHERE pat_firstname = ? AND pat_lastname = ?;",
+        [fn_pat, ln_pat]
     );
-    res.json(result);
+    res.json(cros);
 });
 
 /* POST CRO */
 router.post("/cro", async (req, res, next) => {
     console.log(req.body);
-    const { med, pat, cro } = req.body;
+    const { fn_pat, ln_pat, fn_med, ln_med, cro } = req.body;
+    const [
+        [{ pat_id }],
+    ] = await db.query(
+        "SELECT pat_id FROM pat WHERE pat_firstname = ? AND pat_lastname = ?;",
+        [fn_pat, ln_pat]
+    );
+    console.log(pat_id);
+    const [
+        [{ med_id }],
+    ] = await db.query(
+        "SELECT med_id FROM med WHERE med_firstname = ? AND med_lastname = ?;",
+        [fn_med, ln_med]
+    );
+    console.log(med_id);
     const result = await db.query(
         "INSERT INTO cro(med_id, pat_id, cro) VALUES (?, ?, ?)",
-        [med, pat, cro]
+        [med_id, pat_id, cro]
     );
     const [
         [created_cro],

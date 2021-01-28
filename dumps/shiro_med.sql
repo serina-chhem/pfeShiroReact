@@ -24,8 +24,8 @@ DROP TABLE IF EXISTS `med`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `med` (
   `med_id` int NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
+  `med_firstname` varchar(255) NOT NULL,
+  `med_lastname` varchar(255) NOT NULL,
   PRIMARY KEY (`med_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -36,7 +36,7 @@ CREATE TABLE `med` (
 
 LOCK TABLES `med` WRITE;
 /*!40000 ALTER TABLE `med` DISABLE KEYS */;
-INSERT INTO `med` VALUES (1,'test1','med1'),(2,'test1','med2'),(3,'test1','med3');
+INSERT INTO `med` VALUES (1,'test1','med1'),(2,'test2','med2'),(3,'test3','med3');
 /*!40000 ALTER TABLE `med` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-17 20:09:53
+-- Dump completed on 2021-01-28  1:47:53

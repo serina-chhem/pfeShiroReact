@@ -11,13 +11,12 @@ const Dictaphone = ({ listening }) => {
                 }
                 disabled={listening}
             >
+
+                Appuyez pour parler
+
                 Start
                 
             </button>
-            {/* <button onClick={() => SpeechRecognition.stopListening()}>
-                Stop
-            </button>
-            <button onClick={() => resetTranscript()}>Reset</button> */}
         </div>
     );
 };

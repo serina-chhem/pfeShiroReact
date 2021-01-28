@@ -1,4 +1,10 @@
 import React, { Component } from "react";
+
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import MainPage from "./components/MainPage.js";
+import Form from "./components/Form.js";
+import Cro from "./components/Cro.js";
+import Navbar from "./components/Navbar.js";
 import "./App.css";
 import logo from "./images/logo.png";
 import proto from "./images/proto.png";
@@ -20,6 +26,15 @@ class App extends Component {
 
     render() {
         return (
+
+            <Router>
+                <div className="App">
+                    <Navbar />
+                    <div className="Container">
+                        <Route exact path="/" component={MainPage} />
+                        <Route exact path="/form" component={Form} />
+                        <Route exact path="/cro" component={Cro} />
+
             <div className="App">
                 <div className="Blanc">
                     <div className="menu">
@@ -95,20 +110,8 @@ class App extends Component {
                         <p>Il est possible de consulter les anciens CRO enregistrés via SHIRO</p>
                         </div>
                     </div>
-                    </div>
                 </div>
-
-                
-
-                <div className="Bleu">
-                    <div className="Prototype">
-                    <h1>Prototype</h1>
-                    <img src={proto} className="App-proto" alt="logo"/>
-                    </div>
-                </div>
-                
-
-                </div>
+            </Router>
         );
     }
 }
