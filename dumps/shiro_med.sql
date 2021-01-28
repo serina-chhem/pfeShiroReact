@@ -36,7 +36,7 @@ CREATE TABLE `med` (
 
 LOCK TABLES `med` WRITE;
 /*!40000 ALTER TABLE `med` DISABLE KEYS */;
-INSERT INTO `med` VALUES (1,'test1','med1'),(2,'test1','med2'),(3,'test1','med3');
+INSERT INTO `med` VALUES (1,'test1','med1'),(2,'test2','med2'),(3,'test3','med3');
 /*!40000 ALTER TABLE `med` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-28  1:36:04
+-- Dump completed on 2021-01-28  1:47:53
