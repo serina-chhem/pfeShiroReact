@@ -29,7 +29,7 @@ CREATE TABLE `cro` (
   `cro` text NOT NULL,
   `date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`cro_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `cro` (
 
 LOCK TABLES `cro` WRITE;
 /*!40000 ALTER TABLE `cro` DISABLE KEYS */;
-INSERT INTO `cro` VALUES (1,1,1,'oui ','2021-01-16 23:58:05'),(2,3,2,'woof','2021-01-17 18:46:18'),(3,2,1,'test','2021-01-17 18:46:48'),(4,2,1,'oui oui oui oui','2021-01-17 18:47:44'),(5,2,1,'Salut ouais est-ce que ça marche passdsdsdsdddddddsds\nest-ce que ça marche encore là ouais','2021-01-17 19:54:32');
+INSERT INTO `cro` VALUES (1,1,1,'oui ','2021-01-16 23:58:05'),(2,3,2,'woof','2021-01-17 18:46:18'),(3,2,1,'test','2021-01-17 18:46:48'),(4,2,1,'oui oui oui oui','2021-01-17 18:47:44'),(5,2,1,'Salut ouais est-ce que ça marche passdsdsdsdddddddsds\nest-ce que ça marche encore là ouais','2021-01-17 19:54:32'),(6,2,1,'\nest-ce que ça marche bien ou pas kfd','2021-01-17 20:39:46'),(7,2,2,'\nallô oui test','2021-01-17 21:20:31'),(8,NULL,NULL,'testaaaa','2021-01-27 23:56:26'),(9,1,1,'testapi','2021-01-27 23:57:48');
 /*!40000 ALTER TABLE `cro` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-17 20:09:53
+-- Dump completed on 2021-01-28  1:36:04

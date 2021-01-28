@@ -1,185 +1,188 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .Bleu {
-  width: 100%;
-  background-color: #d0f3ff;
+    width: 100%;
+    background-color: #d0f3ff;
 }
 
 .Blanc {
-  width: 100%;
-  background-color: white;
+    width: 100%;
+    background-color: white;
 }
 
 .menu {
-  overflow: hidden;
-  background-color: #bbffdb;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
+    overflow: hidden;
+    background-color: #bbffdb;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
 }
 
 .marge {
-  margin-left: 3em;
+    margin-left: 3em;
 }
 
 .Carre {
-  flex: 1;
+    flex: 1;
 }
 
 .Rectangle {
-  flex: 2.5;
+    flex: 2.5;
 }
 
 .menu button {
-  float: right;
-  display: block;
-  background-color:	#3fd661;
-  border-color: 	#3fd661;
-  color: white;
-  text-align: center;
-  padding: 6px 14px;
-  text-decoration: none;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  margin-right: 2%;
-  border-radius: 12px;
+    float: right;
+    display: block;
+    background-color: #3fd661;
+    border-color: #3fd661;
+    color: white;
+    text-align: center;
+    padding: 6px 14px;
+    text-decoration: none;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-right: 2%;
+    border-radius: 12px;
 }
 
 .menu button:hover {
-  background-color: white;
-  border-color: #3fd661;
-  color: black;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: white;
+    border-color: #3fd661;
+    color: black;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+        0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .Accueil {
-  padding-top: 2%;
-  padding-bottom: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
 .Accueil h1 {
-  margin-top: 2em;
-  margin-left: 15%;
-  margin-right: 15%;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 .Accueil button {
-  float: top;
-  display: block;
-  margin: auto;
-  background-color: #4b3fd5;
-  color: white;
-  text-align: center;
-  padding: 6px 14px;
-  text-decoration: none;
-  border-radius: 12px;
+    float: top;
+    display: block;
+    margin: auto;
+    background-color: #4b3fd5;
+    color: white;
+    text-align: center;
+    padding: 6px 14px;
+    text-decoration: none;
+    border-radius: 12px;
 }
 
 .Accueil button:hover {
-  background-color: white;
-  border-color: #4b3fd5;
-  color: black;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: white;
+    border-color: #4b3fd5;
+    color: black;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+        0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .App-logo {
-  height: 10vmin;
-  pointer-events: none;
+    height: 10vmin;
+    pointer-events: none;
 }
 
 .App-proto {
-  height: 80vmin;
-  pointer-events: none;
+    height: 80vmin;
+    pointer-events: none;
 }
 
-
-
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .Fonctionnalités {
-  margin-left: 10%;
-  margin-right: 10%;
-  padding-bottom: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-bottom: 2%;
 }
 
 .Fonctionnalités h1 {
-  text-align: left;
-  text-decoration: underline;
-  text-decoration-color: #4b3fd5;
+    text-align: left;
+    text-decoration: underline;
+    text-decoration-color: #4b3fd5;
 }
 
 .Bloc {
-  display: flex;
+    display: flex;
 }
 
 .bloc1 {
-  border: 2px solid black;
-  margin-left: 5%;
-  flex: 1;
-  box-shadow: 0 5px 10px 0 #4b3fd5,0 17px 50px 0 rgba(0,0,0,0.19);
+    border: 2px solid black;
+    margin-left: 5%;
+    flex: 1;
+    box-shadow: 0 5px 10px 0 #4b3fd5, 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .bloc2 {
-  border: 2px solid black;
-  margin-left: 4%;
-  flex: 1;
-  box-shadow: 0 5px 10px 0 #4b3fd5,0 17px 50px 0 rgba(0,0,0,0.19);
+    border: 2px solid black;
+    margin-left: 4%;
+    flex: 1;
+    box-shadow: 0 5px 10px 0 #4b3fd5, 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .bloc3 {
-  border: 2px solid black;
-  margin-top: 4%;
-  margin-left: 5%;
-  flex: 1;
-  box-shadow: 0 5px 10px 0 #4b3fd5,0 17px 50px 0 rgba(0,0,0,0.19);
+    border: 2px solid black;
+    margin-top: 4%;
+    margin-left: 5%;
+    flex: 1;
+    box-shadow: 0 5px 10px 0 #4b3fd5, 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .bloc4 {
-  border: 2px solid black;
-  margin-top: 4%;
-  margin-left: 4%;
-  flex: 1;
-  box-shadow: 0 5px 10px 0 #4b3fd5,0 17px 50px 0 rgba(0,0,0,0.19);
+    border: 2px solid black;
+    margin-top: 4%;
+    margin-left: 4%;
+    flex: 1;
+    box-shadow: 0 5px 10px 0 #4b3fd5, 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .Propos {
-  padding-top: 1%;
-  margin-left: 10%;
-  margin-right: 10%;
-  padding-bottom: 2%;
+    padding-top: 1%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-bottom: 2%;
 }
 
 .Propos h1 {
-  text-align: left;
-  text-decoration: underline;
-  text-decoration-color: #4b3fd5;
+    text-align: left;
+    text-decoration: underline;
+    text-decoration-color: #4b3fd5;
 }
 
 .Propos p {
-  text-align: left;
-  margin-left: 5%;
+    text-align: left;
+    margin-left: 5%;
 }
 
 .Prototype {
-  margin-left: 10%;
-  margin-right: 10%;
-  padding-bottom: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-bottom: 2%;
 }
 
 .Prototype h1 {
-  text-align: left;
-  text-decoration: underline;
-  text-decoration-color: #4b3fd5;
+    text-align: left;
+    text-decoration: underline;
+    text-decoration-color: #4b3fd5;
 }
 
+.Container {
+    margin-top: 100px;
+}

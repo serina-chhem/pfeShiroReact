@@ -10,12 +10,8 @@ const Dictaphone = ({ listening }) => {
                 }
                 disabled={listening}
             >
-                Start
+                Appuyez pour parler
             </button>
-            {/* <button onClick={() => SpeechRecognition.stopListening()}>
-                Stop
-            </button>
-            <button onClick={() => resetTranscript()}>Reset</button> */}
         </div>
     );
 };
