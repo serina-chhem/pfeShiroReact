@@ -4,6 +4,9 @@ import MainPage from "./components/MainPage.js";
 import Form from "./components/Form.js";
 import Cro from "./components/Cro.js";
 import Navbar from "./components/Navbar.js";
+import "./App.css";
+import {Helmet} from "react-helmet";
+
 
 class App extends Component {
     constructor(props) {
@@ -14,7 +17,11 @@ class App extends Component {
     render() {
         return (
             <Router>
-                <div className="App">
+                <div>
+                    <Helmet>
+                        <title>PFE - Shiro</title>
+                    </Helmet>
+                    
                     <Navbar />
                     <div className="Container">
                         <Route exact path="/" component={MainPage} />
@@ -22,6 +29,7 @@ class App extends Component {
                         <Route exact path="/cro" component={Cro} />
                     </div>
                 </div>
+    
             </Router>
         );
     }

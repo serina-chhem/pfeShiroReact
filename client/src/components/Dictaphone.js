@@ -1,5 +1,6 @@
 import React from "react";
 import SpeechRecognition from "react-speech-recognition";
+import{MdKeyboardVoice} from 'react-icons/md';
 
 const Dictaphone = ({ listening }) => {
     return (
@@ -9,8 +10,10 @@ const Dictaphone = ({ listening }) => {
                     SpeechRecognition.startListening({ language: "fr-FR" })
                 }
                 disabled={listening}
+                className="buttonStart"
             >
-                Appuyez pour parler
+                <MdKeyboardVoice className="logoVoice"/>
+                Commencer
             </button>
         </div>
     );
