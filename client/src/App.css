@@ -119,11 +119,6 @@
     text-decoration-color: #4b3fd5;
 }
 
-.Fonctionnalités img { 
-  width: 150px;
-  height: 150px;
-}
-
 .Bloc {
     display: flex;
 }
