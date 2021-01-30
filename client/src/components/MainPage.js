@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import Serina from "../images/serina.jpg";
+import Serina from "../images/serina.JPG";
 import Etienne from "../images/etienne.jpg";
 import Nathan from "../images/nathan.jpg";
 import Surgeons from "../images/surgeons.svg";
