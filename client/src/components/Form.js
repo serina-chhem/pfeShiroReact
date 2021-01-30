@@ -1,6 +1,8 @@
 import Dictaphone from "./Dictaphone.js";
 import { useEffect, useState, useRef } from "react";
-import SpeechRecognition, {useSpeechRecognition} from "react-speech-recognition";
+import SpeechRecognition, {
+    useSpeechRecognition,
+} from "react-speech-recognition";
 
 const Form = () => {
     const hasBeenUpdated = useRef(false);
@@ -10,27 +12,45 @@ const Form = () => {
     const [firstname_med, setFirstname_med] = useState("");
     const [lastname_med, setLastname_med] = useState("");
     const [message, setMessage] = useState([]);
-    const [pat_id, setPatId] = useState("");
-    const [med_id, setMedId] = useState("");
     const commands = [
         {
-            command: ["C'est parti", 'Ok Shiro', 'Shiro'],
-            callback: () => setMessage(`Bonjour, je suis Shiro. Quel est votre nom Docteur ?`)
+            command: ["C'est parti", "Ok Shiro", "Shiro"],
+            callback: () =>
+                setMessage(
+                    `Bonjour, je suis Shiro. Quel est votre nom Docteur ?`
+                ),
         },
         {
             command: ["Je suis docteur *"],
-            callback: (nomDocteur) => setMessage(`Alors enchanté docteur ${nomDocteur}`)
+            callback: (nomDocteur) =>
+                setMessage(`Alors enchanté docteur ${nomDocteur}`),
         },
         {
-            command: ['Je veux enregistrer un compte rendu', 'Compte-rendu', 'CRO', 'Enregistrer un compte-rendu'],
-            callback:() =>  setMessage("D'accord, quels sont les noms et prénoms de votre patient")
+            command: [
+                "Je veux enregistrer un compte rendu",
+                "Compte-rendu",
+                "CRO",
+                "Enregistrer un compte-rendu",
+            ],
+            callback: () =>
+                setMessage(
+                    "D'accord, quels sont les noms et prénoms de votre patient"
+                ),
         },
         {
-            command: [, "Mon patient est *", "Il s'appelle *", "Son nom est * et son prénom est *"],
-            callback: (nomPatient) => setMessage(`D'accord, vous venez d'opérer ${nomPatient} aujourd'hui`)
+            command: [
+                ,
+                "Mon patient est *",
+                "Il s'appelle *",
+                "Son nom est * et son prénom est *",
+            ],
+            callback: (nomPatient) =>
+                setMessage(
+                    `D'accord, vous venez d'opérer ${nomPatient} aujourd'hui`
+                ),
         },
-    ]
-    const { transcript, listening } = useSpeechRecognition({commands});
+    ];
+    const { transcript, listening } = useSpeechRecognition({ commands });
     useEffect(() => {
         console.log(listening, transcript, hasBeenUpdated);
         if (!transcript) return;
@@ -38,7 +58,6 @@ const Form = () => {
         if (hasBeenUpdated.current) return;
         hasBeenUpdated.current = true;
         setCro(cro + "\n" + transcript);
-        
     }, [cro, transcript, listening]);
     if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
         return null;
@@ -71,57 +90,56 @@ const Form = () => {
 
     return (
         <div>
-
             <div className="croPage">
-
                 <section className="glass">
-                
                     <div className="cro-Surgeon">
-
-                    <Dictaphone listening={listening}  />
+                        <Dictaphone listening={listening} />
 
                         <form onSubmit={handleSubmit}>
-                            
                             <h1>Chirurgien opérateur</h1>
                             <p>Nom :</p>
                             <input
                                 value={lastname_med}
                                 name="lastname_med"
-                                onChange={(e) => setLastname_med(e.target.value)}
+                                onChange={(e) =>
+                                    setLastname_med(e.target.value)
+                                }
                             />
                             <p>Prénom :</p>
                             <input
                                 value={firstname_med}
                                 name="firstname_med"
-                                onChange={(e) => setFirstname_med(e.target.value)}
+                                onChange={(e) =>
+                                    setFirstname_med(e.target.value)
+                                }
                             />
-                            <p>{date}/0{month}/{year}</p>
-                            
+                            <p>
+                                {date}/0{month}/{year}
+                            </p>
                         </form>
-
                     </div>
 
                     <div className="cro-Patient">
-                    
-                    <h1>Compte-rendu opératoire</h1>
+                        <h1>Compte-rendu opératoire</h1>
                         <form onSubmit={handleSubmit}>
-                            
                             <p>Nom du patient :</p>
                             <input
                                 value={lastname_pat}
                                 name="lastname_pat"
-                                onChange={(e) => setLastname_pat(e.target.value)}
+                                onChange={(e) =>
+                                    setLastname_pat(e.target.value)
+                                }
                                 disabled={listening}
                             />
                             <p>Prénom du patient :</p>
                             <input
                                 value={firstname_pat}
                                 name="firstname_pat"
-                                onChange={(e) => setFirstname_pat(e.target.value)}
+                                onChange={(e) =>
+                                    setFirstname_pat(e.target.value)
+                                }
                             />
-                            
                         </form>
-
 
                         <form onSubmit={handleSubmit}>
                             <p>Parlez pour remplir le CRO :</p>
@@ -129,19 +147,17 @@ const Form = () => {
                                 value={cro}
                                 onChange={(e) => setCro(e.target.value)}
                                 disabled={listening}
-                            >
-                            </textarea>
+                            ></textarea>
                             <div>
-                                <input type="submit" value="Valider" className="buttonValider"/>
+                                <input
+                                    type="submit"
+                                    value="Valider"
+                                    className="buttonValider"
+                                />
                             </div>
-
                         </form>
-
                     </div>
-
-
                 </section>
-
             </div>
 
             <div className="circle1"> </div>
