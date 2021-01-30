@@ -34,7 +34,7 @@ const Commands = () => {
     return (
        
         <div>
-             <p>{transcript}</p>
+            <p>{transcript}</p>
 
             <p>{message}</p>
         </div>
