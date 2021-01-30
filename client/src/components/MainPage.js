@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import proto from "../proto.png";
+// import proto from "../proto.png";
 
 export default class MainPage extends Component {
     render() {
@@ -112,7 +112,7 @@ export default class MainPage extends Component {
                 <div className="Bleu">
                     <div className="Prototype">
                         <h1>Prototype</h1>
-                        <img src={proto} className="App-proto" alt="logo" />
+                        {/*<img src={proto} className="App-proto" alt="logo" />*/}
                     </div>
                 </div>
                 <div className="Blanc">

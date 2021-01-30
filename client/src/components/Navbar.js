@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
-import logo from "../logo.png";
+// import logo from "../logo.png";
 
 class Navbar extends React.Component {
     render() {
@@ -9,7 +9,7 @@ class Navbar extends React.Component {
             <div className="Blanc">
                 <div className="menu">
                     <Link to="/" className="nav-link Carre">
-                        <img src={logo} className="App-logo" alt="logo" />
+                        {/*<img src={logo} className="App-logo" alt="logo" />*/}
                     </Link>
                     <div className="Rectangle"></div>
                     <div className="Carre">
