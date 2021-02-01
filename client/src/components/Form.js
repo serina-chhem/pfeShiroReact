@@ -106,7 +106,7 @@ const Form = () => {
                                 name="firstname_med"
                                 onChange={(e) => setFirstname_med(e.target.value)}
                             />
-                            <p>{date}/0{month}/{year}</p>
+                            <p>0{date}/0{month}/{year}</p>
                             
                         </form>
 

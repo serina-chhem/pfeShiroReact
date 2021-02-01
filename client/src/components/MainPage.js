@@ -5,6 +5,8 @@ import proto from "../images/proto.png";
 import Serina from "../images/serina.JPG";
 import Etienne from "../images/etienne.jpg";
 import Nathan from "../images/nathan.jpg";
+import Jordan from "../images/jordan.jpg";
+import Thomas from "../images/thomas.jpg";
 
 import Surgeons from '../images/surgeons.svg';
 import Fonctionnalite1 from '../images/func1.svg';
@@ -64,7 +66,7 @@ export default class MainPage extends Component {
                             </span>
                             <br /><br />
                             <span class="marge">
-                                En partant de ce constat, nous avons eu l'intenton supprimer toute étape 
+                                En partant de ce constat, nous avons eu l'intention de supprimer toute étape 
                                 de validation par un tiers et ainsi d'optimiser les tâches secondaires du corps chirugical.
                                 Nous avons donc décidé de créer un assistant vocal permettant l'automatisation de la rédaction d’un compte-rendu
                                 opératoire. 
@@ -155,12 +157,12 @@ export default class MainPage extends Component {
                                 <p>Responsable partenariats</p>
                             </div>
                             <div className="membre">
-                                <img></img>
+                            <img src={Thomas} className="imgMembre"></img>
                                 <h3>Thomas GEORGE</h3>
                                 <p>Développeur front-end</p>
                             </div>
                             <div className="membre">
-                                <img></img>
+                            <img src={Jordan} className="imgMembre"></img>
                                 <h3>Jordan DO BARREIRO</h3>
                                 <p>Développeur back-end</p>
                             </div>
