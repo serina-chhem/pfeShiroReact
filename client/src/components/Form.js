@@ -113,7 +113,9 @@ const Form = () => {
                                     setFirstname_med(e.target.value)
                                 }
                             />
-                            <p>0{date}/0{month}/{year}</p>
+                            <p>
+                                0{date}/0{month}/{year}
+                            </p>
                         </form>
                     </div>
 
@@ -127,7 +129,6 @@ const Form = () => {
                                 onChange={(e) =>
                                     setLastname_pat(e.target.value)
                                 }
-                                disabled={listening}
                             />
                             <p>Prénom du patient :</p>
                             <input
