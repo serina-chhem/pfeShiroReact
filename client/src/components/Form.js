@@ -28,6 +28,7 @@ const Form = () => {
                 break;
             case "merci":
                 response = "de rien";
+                break;
             // toggleBtn();
         }
         if (!response) {

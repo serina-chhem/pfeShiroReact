@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50187e23-1d56-485d-ae37-7b7eb53c515a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/client/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Dictaphone.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Dictaphone.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Form.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Form.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
