@@ -5,6 +5,39 @@ import SpeechRecognition, {
 } from "react-speech-recognition";
 
 const Form = () => {
+
+
+    const SpeechRecognitionz = window.SpeechRecognition || window.webkitSpeechRecognition;
+    let resp = false;
+
+    function process(rawText) {
+        resp = false;
+        console.log(rawText);
+        let text = rawText.replace(/\s/g, "");
+        text = text.toLowerCase();
+        console.log("text = ",text);
+        let response = null;
+        switch(text) {
+            case "bonjour":
+                response = "bonjour"; break;
+            case "relislecompte-rendu":
+                response = cro; break;
+            case "recommence":
+                response = "j'ai supprimé le texte du compte-rendu";
+                setCro("");
+                break;
+            case "merci":
+                response = "de rien";
+            // toggleBtn();
+        }
+        if (!response) {
+            // window.open(`http://google.com/search?q=${rawText.replace("search", "")}`, "_blank");
+            resp = true;
+            return "C'est noté";
+        }
+        return response;
+    }
+
     const hasBeenUpdated = useRef(false);
     const [cro, setCro] = useState("");
     const [firstname_pat, setFirstname_pat] = useState("");
@@ -50,18 +83,22 @@ const Form = () => {
                 ),
         },
     ];
-    const { transcript, listening } = useSpeechRecognition({ commands });
+    const { transcript, listening } = useSpeechRecognition();
     useEffect(() => {
         console.log(listening, transcript, hasBeenUpdated);
         if (!transcript) return;
         if (listening) return (hasBeenUpdated.current = false);
         if (hasBeenUpdated.current) return;
         hasBeenUpdated.current = true;
-        setCro(cro + "\n" + transcript);
+        const response = process(transcript);
+        speechSynthesis.speak(new SpeechSynthesisUtterance(response));
+        if (resp) setCro(cro + "\n" + transcript);
     }, [cro, transcript, listening]);
     if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
         return null;
     }
+
+
 
     const handleSubmit = () => {
         try {
