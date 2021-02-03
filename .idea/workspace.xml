@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50187e23-1d56-485d-ae37-7b7eb53c515a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/Test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/TestCro.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/client/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Form.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/MainPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Navbar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,6 +114,7 @@
       <workItem from="1611080260420" duration="144000" />
       <workItem from="1612269890377" duration="4480000" />
       <workItem from="1612277720349" duration="1736000" />
+      <workItem from="1612339021620" duration="9717000" />
     </task>
     <servers />
   </component>

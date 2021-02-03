@@ -170,27 +170,27 @@ export default class MainPage extends Component {
 
                         <div className="membresGroupe">
                             <div className="membre">
-                                <img src={Serina} className="imgMembre"></img>
+                                <img src={Serina} className="imgMembre" alt="alt"></img>
                                 <h3>Sérina CHHEM</h3>
                                 <p>Chef de projet</p>
                             </div>
                             <div className="membre">
-                                <img src={Etienne} className="imgMembre"></img>
+                                <img src={Etienne} className="imgMembre" alt="alt"></img>
                                 <h3>Etienne GALLAIS</h3>
                                 <p>Responsable partenariats</p>
                             </div>
                             <div className="membre">
-                                <img></img>
+                                <img alt="alt"></img>
                                 <h3>Thomas GEORGE</h3>
                                 <p>Développeur front-end</p>
                             </div>
                             <div className="membre">
-                                <img></img>
+                                <img alt="alt"></img>
                                 <h3>Jordan DO BARREIRO</h3>
                                 <p>Développeur back-end</p>
                             </div>
                             <div className="membre">
-                                <img src={Nathan} className="imgMembre"></img>
+                                <img src={Nathan} className="imgMembre" alt="alt"></img>
                                 <h3>Nathan LANCMAN</h3>
                                 <p>Responsable produit</p>
                             </div>

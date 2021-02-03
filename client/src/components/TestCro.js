@@ -1,10 +1,15 @@
 import Dictaphone from "./Dictaphone.js";
 import { useEffect, useState, useRef } from "react";
 import SpeechRecognition, {
-    useSpeechRecognition,
+    // useSpeechRecognition,
 } from "react-speech-recognition";
+import {MdKeyboardVoice} from "react-icons/md";
 
-const Form = () => {
+
+
+const TestCro = () => {
+
+    const SpeechRecognitionz = window.SpeechRecognition || window.webkitSpeechRecognition;
     const hasBeenUpdated = useRef(false);
     const [cro, setCro] = useState("");
     const [firstname_pat, setFirstname_pat] = useState("");
@@ -12,54 +17,95 @@ const Form = () => {
     const [firstname_med, setFirstname_med] = useState("");
     const [lastname_med, setLastname_med] = useState("");
     // const [message, setMessage] = useState([]);
-    // const commands = [
-    //     {
-    //         command: ["C'est parti", "Ok Shiro", "Shiro"],
-    //         callback: () =>
-    //             setMessage(
-    //                 `Bonjour, je suis Shiro. Quel est votre nom Docteur ?`
-    //             ),
-    //     },
-    //     {
-    //         command: ["Je suis docteur *"],
-    //         callback: (nomDocteur) =>
-    //             setMessage(`Alors enchanté docteur ${nomDocteur}`),
-    //     },
-    //     {
-    //         command: [
-    //             "Je veux enregistrer un compte rendu",
-    //             "Compte-rendu",
-    //             "CRO",
-    //             "Enregistrer un compte-rendu",
-    //         ],
-    //         callback: () =>
-    //             setMessage(
-    //                 "D'accord, quels sont les noms et prénoms de votre patient"
-    //             ),
-    //     },
-    //     {
-    //         command: [
-    //             ,
-    //             "Mon patient est *",
-    //             "Il s'appelle *",
-    //             "Son nom est * et son prénom est *",
-    //         ],
-    //         callback: (nomPatient) =>
-    //             setMessage(
-    //                 `D'accord, vous venez d'opérer ${nomPatient} aujourd'hui`
-    //             ),
-    //     },
-    // ];
-    // const { transcript, listening } = useSpeechRecognition({ commands });
-    const { transcript, listening } = useSpeechRecognition();
+    let [text, setText] = useState("ta mere");
+
+    let toggleBtn = null;
+    let listening = false;
+    if (typeof SpeechRecognition === "undefined") {
+        // startBtn.remove();
+
+    } else {
+        const recognition = new SpeechRecognitionz();
+        recognition.continuous = false;
+        recognition.interimResults = true;
+        recognition.onresult = event => {
+            const last = event.results.length - 1;
+            const res = event.results[last];
+            text = res[0].transcript;
+            console.log(res[0].transcript);
+            if (res.isFinal) {
+                const response = process(text);
+                // text to speech
+                speechSynthesis.speak(new SpeechSynthesisUtterance(response));
+            } else {
+                // processing.innerHTML = `ecoute: ${text}`;
+            }
+        }
+
+        toggleBtn = () => {
+            if (listening) {
+                recognition.stop();
+                speechSynthesis.speak(new SpeechSynthesisUtterance('stop ecoute'));
+                // startBtn.textContent = "Start listening";
+
+            } else {
+                recognition.start();
+                // startBtn.textContent = "Stop listening";
+                speechSynthesis.speak(new SpeechSynthesisUtterance('Indiquez le nom du patient'));
+            }
+            listening = !listening;
+        };
+        // startBtn.addEventListener("click", toggleBtn);
+    }
+
+    function process(rawText) {
+        let text = rawText.replace(/\s/g, "");
+        text = text.toLowerCase();
+        let response = null;
+        switch(text) {
+            case "bonjour":
+                response = "bonjour c'est moi l'assistant";toggleBtn(); break;
+            case "enregistrerlecompterendu":
+                response = "ok c'est fait. lol"; toggleBtn(); break;
+            case "nomdupatient":
+                response = "ok c'est fait. lol"; toggleBtn(); break;
+            case "prénomdupatient":
+                response = "ok c'est fait. lol"; toggleBtn(); break;
+            case "ilestquelleheure":
+                response = new Date().toLocaleTimeString();toggleBtn(); break;
+            case "stop":
+                response = "Bye!!";toggleBtn();
+                break;
+            default:
+                response = "gé pas compris.";
+                toggleBtn();
+
+        }
+        if (!response) {
+            window.open(`http://google.com/search?q=${rawText.replace("search", "")}`, "_blank");
+            return `I found some information for ${rawText}`;
+        }
+        return response;
+    }
+
+
+
+
+
+
+
+    // const { transcript, listening } = useSpeechRecognition();
     useEffect(() => {
-        console.log(listening, transcript, hasBeenUpdated);
-        if (!transcript) return;
+        console.log("listening = ", listening, "\ntext = ",text,"\n", "hasBeenUpdated = ",hasBeenUpdated);
+        if (!text) return;
         if (listening) return (hasBeenUpdated.current = false);
         if (hasBeenUpdated.current) return;
         hasBeenUpdated.current = true;
-        setCro(cro + "\n" + transcript);
-    }, [cro, transcript, listening]);
+        setText(cro + "\n" + text);
+        // setCro(cro + "\n" + transcript);
+
+    // }, [text, cro]);
+    }, [text, cro, listening]);
     if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
         return null;
     }
@@ -95,6 +141,13 @@ const Form = () => {
                 <section className="glass">
                     <div className="cro-Surgeon">
                         <Dictaphone listening={listening} />
+                        <button
+                            onClick={toggleBtn}
+                            className="buttonStart"
+                        >
+                            <MdKeyboardVoice className="logoVoice"/>
+                            Commencer
+                        </button>
 
                         <form onSubmit={handleSubmit}>
                             <h1>Chirurgien opérateur</h1>
@@ -145,8 +198,8 @@ const Form = () => {
                         <form onSubmit={handleSubmit}>
                             <p>Parlez pour remplir le CRO :</p>
                             <textarea
-                                value={cro}
-                                onChange={(e) => setCro(e.target.value)}
+                                value={text}
+                                onChange={(e) => setText(e.target.value)}
                                 disabled={listening}
                             ></textarea>
                             <div>
@@ -169,4 +222,4 @@ const Form = () => {
     );
 };
 
-export default Form;
+export default TestCro;
