@@ -27,6 +27,9 @@ class Navbar extends React.Component {
                             <Link to="/#contact" className="nav-link">
                                 Créateurs
                             </Link>
+                        <Link to="/test" className="nav-link">
+                                Test
+                            </Link>
                         
                        
                             
