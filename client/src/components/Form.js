@@ -3,11 +3,15 @@ import { useEffect, useState, useRef } from "react";
 import SpeechRecognition, {
     useSpeechRecognition,
 } from "react-speech-recognition";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
+import { host } from "../config.json";
+
+toast.configure();
 const Form = () => {
-
-
-    const SpeechRecognitionz = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const SpeechRecognitionz =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
     let resp = false;
 
     function process(rawText) {
@@ -15,13 +19,15 @@ const Form = () => {
         console.log(rawText);
         let text = rawText.replace(/\s/g, "");
         text = text.toLowerCase();
-        console.log("text = ",text);
+        console.log("text = ", text);
         let response = null;
-        switch(text) {
+        switch (text) {
             case "bonjour":
-                response = "bonjour"; break;
+                response = "bonjour";
+                break;
             case "relislecompte-rendu":
-                response = cro; break;
+                response = cro;
+                break;
             case "recommence":
                 response = "j'ai supprimé le texte du compte-rendu";
                 setCro("");
@@ -45,6 +51,7 @@ const Form = () => {
     const [lastname_pat, setLastname_pat] = useState("");
     const [firstname_med, setFirstname_med] = useState("");
     const [lastname_med, setLastname_med] = useState("");
+    const [status, setStatus] = useState({ type: null, message: "" });
     const [message, setMessage] = useState([]);
     const commands = [
         {
@@ -84,6 +91,7 @@ const Form = () => {
                 ),
         },
     ];
+    // const { transcript, listening } = useSpeechRecognition({ commands });
     const { transcript, listening } = useSpeechRecognition();
     useEffect(() => {
         console.log(listening, transcript, hasBeenUpdated);
@@ -91,6 +99,7 @@ const Form = () => {
         if (listening) return (hasBeenUpdated.current = false);
         if (hasBeenUpdated.current) return;
         hasBeenUpdated.current = true;
+        // setCro(cro + "\n" + transcript);
         const response = process(transcript);
         speechSynthesis.speak(new SpeechSynthesisUtterance(response));
         if (resp) setCro(cro + "\n" + transcript);
@@ -99,11 +108,11 @@ const Form = () => {
         return null;
     }
 
-
-
-    const handleSubmit = () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus({ type: null, message: "" });
         try {
-            fetch("http://localhost:9000/api/cro", {
+            await fetch(`${host}/cro`, {
                 method: "POST",
                 headers: {
                     Accept: "application/json",
@@ -117,8 +126,23 @@ const Form = () => {
                     cro: cro,
                 }),
             });
+            toast.success("Compte-rendu enregistré !", { autoClose: 3000 });
+            setStatus({ type: "success", message: "Enregistrement réussi" });
+            setLastname_pat("");
+            setFirstname_pat("");
+            setLastname_med("");
+            setFirstname_med("");
+            setCro("");
+            // window.setTimeout(function () {
+            //     window.location.href = "/cro";
+            // }, 3000);
         } catch (e) {
             console.error(e);
+            toast.error("Désolé, une erreur est survenue.");
+            setStatus({
+                type: "error",
+                message: "Erreur lors de l'enregistrement",
+            });
         }
     };
     const dateComplete = new Date();
@@ -137,6 +161,7 @@ const Form = () => {
                             <h1>Chirurgien opérateur</h1>
                             <p>Nom :</p>
                             <input
+                                className="docteurInput"
                                 value={lastname_med}
                                 name="lastname_med"
                                 onChange={(e) =>
@@ -145,6 +170,7 @@ const Form = () => {
                             />
                             <p>Prénom :</p>
                             <input
+                                className="docteurInput"
                                 value={firstname_med}
                                 name="firstname_med"
                                 onChange={(e) =>
@@ -164,12 +190,14 @@ const Form = () => {
                             <input
                                 value={lastname_pat}
                                 name="lastname_pat"
+                                className="patientInput"
                                 onChange={(e) =>
                                     setLastname_pat(e.target.value)
                                 }
                             />
                             <p>Prénom du patient :</p>
                             <input
+                                className="patientInput"
                                 value={firstname_pat}
                                 name="firstname_pat"
                                 onChange={(e) =>
@@ -181,16 +209,20 @@ const Form = () => {
                         <form onSubmit={handleSubmit}>
                             <p>Parlez pour remplir le CRO :</p>
                             <textarea
+                                className="croInput"
                                 value={cro}
                                 onChange={(e) => setCro(e.target.value)}
                                 disabled={listening}
                             ></textarea>
                             <div>
-                                <input
+                                <button
                                     type="submit"
+                                    // onClick={notify}
                                     value="Valider"
                                     className="buttonValider"
-                                />
+                                >
+                                    Valider
+                                </button>
                             </div>
                         </form>
                     </div>

@@ -22,7 +22,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 # Live version
 
-Site : ...
+Site : [https://shiro-ece.herokuapp.com/](https://shiro-ece.herokuapp.com/)
 
 # How to setup a MySQL localhost using Workbench
 
