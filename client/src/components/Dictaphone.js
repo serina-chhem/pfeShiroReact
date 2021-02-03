@@ -3,11 +3,17 @@ import SpeechRecognition from "react-speech-recognition";
 import{MdKeyboardVoice} from 'react-icons/md';
 
 const Dictaphone = ({ listening }) => {
+
+    function helloworld() {
+        SpeechRecognition.startListening({ language: "fr-FR" });
+        speechSynthesis.speak(new SpeechSynthesisUtterance("Parlez, je vous écoute"));
+    }
     return (
         <div>
             <button
                 onClick={() =>
-                    SpeechRecognition.startListening({ language: "fr-FR" })
+                    helloworld()
+                    // SpeechRecognition.startListening({ language: "fr-FR" });
                 }
                 disabled={listening}
                 className="buttonStart"
